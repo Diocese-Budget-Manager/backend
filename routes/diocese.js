@@ -18,7 +18,7 @@ router.put(
 );
 router.get(
   "/:id",
-  // authMiddleware,
+  authMiddleware,
   // superAdminonly,
   dioceseController.getDioceseById,
 );
