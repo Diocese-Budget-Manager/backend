@@ -28,7 +28,15 @@ const jwtCheck = auth({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(cors({ origin: appOrigin }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://makeni-diocese-dashboard.onrender.com/",
+    ],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  }),
+);
 
 // enforce on all endpoints
 // app.use(jwtCheck);
