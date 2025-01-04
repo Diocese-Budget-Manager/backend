@@ -33,6 +33,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://makeni-diocese-dashboard.onrender.com/",
+      "https://backend-zlx3.onrender.com",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   }),

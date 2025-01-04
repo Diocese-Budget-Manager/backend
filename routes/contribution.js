@@ -11,13 +11,13 @@ router.get("/", authMiddleware, contributionController.getAllContributions);
 router.post(
   "/",
   authMiddleware,
-  permissionsMiddleware,
+  // permissionsMiddleware,
   contributionController.createContribution,
 );
 router.put(
   "/:id",
   authMiddleware,
-  permissionsMiddleware,
+  // permissionsMiddleware,
   contributionController.updateContribution,
 );
 router.get(
@@ -26,6 +26,13 @@ router.get(
   permissionsMiddleware,
   contributionController.getContributionById,
 );
+router.get(
+  "/parish/:id",
+  authMiddleware,
+  // permissionsMiddleware,
+  contributionController.getParishContributions,
+);
+
 router.delete(
   "/:id",
   authMiddleware,

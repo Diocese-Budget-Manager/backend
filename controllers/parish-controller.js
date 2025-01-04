@@ -40,6 +40,17 @@ const updateParish = async (req, res) => {
     const parish = await Parish.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
     }).populate("diocese");
+    
+    const adminUser = await User.findOne({ uid: req.user.uid });
+
+    if (parish) {
+      await ActivityLog.create({
+        details: `Parish ${parish.name} has been updated`,
+        user: adminUser._id,
+        parish: parish._id,
+        activityType: "updateParish",
+      });
+    }
     res.status(200).json(parish);
   } catch (err) {
     res.status(500).json(err);

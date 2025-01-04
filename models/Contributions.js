@@ -12,7 +12,7 @@ const contributionsSchema = new db.Schema({
     required: true,
   },
   source: { type: String, required: true }, // e.g. Offering, Tithe, Fundraising, Salaries, etc.
-  type: { type: String, enum: ["inflow", "outflow"], required: true },
+  type: { type: String, enum: ["income", "expence"], required: true },
   amount: { type: Number, required: true },
   date: { type: Date, required: true },
   description: { type: String },
