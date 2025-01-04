@@ -1,4 +1,4 @@
-const db = require('../helpers/db');
+const db = require("../helpers/db");
 
 const contributionsSchema = new db.Schema({
   diocese: {
@@ -12,13 +12,13 @@ const contributionsSchema = new db.Schema({
     required: true,
   },
   source: { type: String, required: true }, // e.g. Offering, Tithe, Fundraising, Salaries, etc.
-  type: { type: String, enum: ["income", "expence"], required: true },
+  type: { type: String, enum: ["income", "expense"], required: true },
   amount: { type: Number, required: true },
   date: { type: Date, required: true },
   description: { type: String },
   notes: { type: String },
 });
 
-const Contributions = db.model('Contributions', contributionsSchema);
+const Contributions = db.model("Contributions", contributionsSchema);
 
 module.exports = Contributions;

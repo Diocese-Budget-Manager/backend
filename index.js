@@ -35,7 +35,8 @@ app.use(
       "https://makeni-diocese-dashboard.onrender.com/",
       "https://backend-zlx3.onrender.com",
     ],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
+    credentials: true,
   }),
 );
 
