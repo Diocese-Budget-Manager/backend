@@ -5,7 +5,7 @@ const Diocese = require("../models/Diocese");
 
 const getAllParishes = async (req, res) => {
   try {
-    const parishes = await Parish.find();
+    const parishes = await Parish.find().populate("diocese");
     res.status(200).json(parishes);
   } catch (err) {
     res.status(500).json(err);
@@ -39,7 +39,7 @@ const updateParish = async (req, res) => {
   try {
     const parish = await Parish.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
-    });
+    }).populate("diocese");
     res.status(200).json(parish);
   } catch (err) {
     res.status(500).json(err);
@@ -48,7 +48,7 @@ const updateParish = async (req, res) => {
 
 const getParishById = async (req, res) => {
   try {
-    const parish = await Parish.findById(req.params.id);
+    const parish = await Parish.findById(req.params.id).populate("diocese");
     res.status(200).json(parish);
   } catch (err) {
     res.status(500).json(err);
