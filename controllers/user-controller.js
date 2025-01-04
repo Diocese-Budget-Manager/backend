@@ -49,6 +49,15 @@ const createUser = async (req, res) => {
   }
 };
 
+const getAuthUser = async (req, res) => {
+  try {
+    const user = await User.findOne({ uid: req.user.uid });
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -97,6 +106,7 @@ const deleteUser = async (req, res) => {
   }
 };
 exports.createUser = createUser;
+exports.getAuthUser = getAuthUser;
 exports.getAllUsers = getAllUsers;
 exports.getUserById = getUserById;
 exports.updateUser = updateUser;
